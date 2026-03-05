@@ -84,8 +84,6 @@ Vision-Identity-Engine/
 ```
 
 ---
-👉 ▶️ Watch demo video
-![ALPR Demo](demo.gif)
 
 ## ⚙️ Installation
 
@@ -123,6 +121,12 @@ python demo.py --source rtsp://user:password@ip/stream
 ```
 
 ---
+
+### 👉 ▶️ Watch demo video
+
+---
+![ALPR Demo](demo.gif)
+
 
 ## 🧪 Identity Matching Logic
 
