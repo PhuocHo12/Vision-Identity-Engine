@@ -84,6 +84,8 @@ Vision-Identity-Engine/
 ```
 
 ---
+👉 ▶️ Watch demo video
+![ALPR Demo](demo.gif)
 
 ## ⚙️ Installation
 

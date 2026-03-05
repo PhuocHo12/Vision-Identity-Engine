@@ -91,7 +91,7 @@ def main():
             x1, y1, x2, y2 = r["bbox"]
             identity = r["identity"]
             score = r["score"]
-
+            reference_face = r["reference_face"]
             label = f"{identity} ({score:.2f})"
 
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
@@ -106,7 +106,7 @@ def main():
             )
 
             if identity != "unknown" and preview_face is None:
-                preview_face = frame[y1:y2, x1:x2].copy()
+                preview_face = reference_face
                 preview_id = identity
 
         if preview_face is not None:

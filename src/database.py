@@ -6,7 +6,7 @@ from tqdm import tqdm
 class IdentityDatabase:
     def __init__(self):
         self.embeddings = {}
-
+        self.reference_face = {}
     def add(self, name, embedding):
         self.embeddings[name] = embedding
 
@@ -28,11 +28,13 @@ class IdentityDatabase:
                 faces = detector.detect(img)
                 if len(faces) == 0:
                     continue
-
+                x1, y1, x2, y2 = faces[0].bbox.astype(int)
                 emb = embedder.extract([faces[0]])[0]
+                reference_face = img[y1:y2, x1:x2].copy()
                 person_embeddings.append(emb)
 
             if person_embeddings:
+                self.reference_face[person] = reference_face
                 self.embeddings[person] = np.mean(person_embeddings, axis=0)
 
-        return self.embeddings
+        return self.reference_face, self.embeddings

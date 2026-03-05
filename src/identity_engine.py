@@ -39,7 +39,8 @@ class VisionIdentityEngine:
             results.append({
                 "bbox": face.bbox.astype(int).tolist(),
                 "identity": name,
-                "score": round(score, 3)
+                "score": round(score, 3),
+                "reference_face": self.database.reference_face.get(name, None)
             })
 
         return results
